@@ -3,7 +3,10 @@ const { User, Blog } = require("../models");
 const withAuth = require("../utils/auth");
 
 router.get("/", async (req,res) => {
-    res.render('homepage')
+    const blogData = await Blog.findAll();
+    const blogs = blogData.map((blog) => blog.get({ plain: true }));
+    console.log(blogs, "hey11111");
+    res.render('homepage',{ blogs })
     // contains all blog posts
 })
 
