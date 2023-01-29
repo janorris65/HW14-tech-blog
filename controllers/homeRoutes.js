@@ -7,7 +7,7 @@ router.get("/", async (req,res) => {
     const blogs = blogData.map((blog) => blog.get({ plain: true }));
     console.log(blogs, "hey11111");
     res.render('homepage',{ blogs })
-    // contains all blog posts
+    // contains all blog posts, needs creator names, and click access to update
 })
 
 router.get("/blogpost/:id", async (req,res)=> {
@@ -17,7 +17,7 @@ router.get("/blogpost/:id", async (req,res)=> {
 
 router.get("/login", async (req,res)=> {
     res.render("login")
-    // sign in or sign up (leads to /signup)
+    // sign in, still need sign up (leads to /signup)
 })
 
 router.get("/signup", async (req,res)=> {
