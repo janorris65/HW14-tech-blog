@@ -46,7 +46,6 @@ router.get("/dashboard", withAuth, async (req,res)=> {
     res.render("dashboard",{ username, userblogs,
         loggedIn: req.session.logged_in
       });
-    console.log("yo!!!!");
     //contains my blog posts and options to add new (title and content),return to dashboard
 })
 
