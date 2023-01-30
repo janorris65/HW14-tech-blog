@@ -1,0 +1,31 @@
+<h3>{{blogpost.post_title}}</h3>
+        <p>
+            {{blogpost.post_content}}
+        </p>
+        <p id="commenttag">
+            {{blogpost.createdAt}}
+        </p>
+        <p>
+            {{blogpost.user.email}}
+        </p>
+<h2>Add a comment</h2>
+<form class="form comment-form">
+  <div class="form-group">
+    <label for="comment-comment">Comment:</label>
+    <input class="form-input" type="text" id="comment-comment" />
+  </div>
+  <div class="form-group">
+    <button class="btn btn-primary" type="submit">Add Comment</button>
+  </div>
+<h2>Comments:</h2>
+<div>
+    {{#each commentblogposts as |commentblogpost|}}
+    <p> 
+        {{commentblogpost.comment_content}} 
+    </p>
+        <p>
+            {{commentblogpost.user.email}}
+        </p>
+    {{/each}}
+</div>
+<script src="/js/commentadd.js"></script>

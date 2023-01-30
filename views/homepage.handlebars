@@ -1,9 +1,9 @@
 <div>
     {{#each blogs as |blog|}}
-    <h3>{{blog.post_title}}</h3>
+    <a href="/blogpost/{{blog.id}}" id="blogtitle"> {{blog.post_title}} </a>
         <p>
             {{blog.createdAt}}
         </p>
     {{/each}}
 </div>
-<nav>
+

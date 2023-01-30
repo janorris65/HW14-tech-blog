@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User, Blog } = require("../models");
+const { User, Blog, Comment } = require("../models");
 const withAuth = require("../utils/auth");
 
 router.get("/", async (req,res) => {
@@ -12,14 +12,24 @@ router.get("/", async (req,res) => {
     // contains all blog posts, needs creator names, and click access to update
 })
 
-router.get("/blogpost/", async (req,res)=> {
-    // res.render("blogpost")
-    // const userblogData = await Blog.findAll({
-    //     where: {
-    //         Userid: 
-    //     }
-    // })
-    // render clicked blogpost, option to leave comment
+router.get("/blogpost/:id", withAuth, async (req,res)=> {
+    
+    const blogpostData = await Blog.findByPk(req.params.id, {
+        include:[User]
+    });
+    const blogpost = blogpostData.get({ plain: true });
+
+    const commentblogpostData = await Comment.findAll({
+        where: {
+            blog_id:req.params.id
+        }
+    },{
+       include:[User]
+    })
+    const commentblogposts = commentblogpostData.map((blog) => blog.get({ plain: true }));
+
+    res.render("blogpost",{ blogpost, commentblogposts })
+    // render clicked blogpost, option to leave comment, show comments
 })
 
 router.get("/login", async (req,res)=> {
@@ -48,5 +58,7 @@ router.get("/dashboard", withAuth, async (req,res)=> {
       });
     //contains my blog posts and options to add new (title and content),return to dashboard
 })
+
+
 
 module.exports = router;

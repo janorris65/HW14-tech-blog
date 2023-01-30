@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User,Blog } = require("../../models");
+const { User,Blog, Comment } = require("../../models");
 
 router.post("/login", async (req, res) => {
   try {
@@ -81,5 +81,23 @@ router.post('/blogpost', async (req, res) => {
   // Creates a new blog post
 });
 
+router.post('/commentpost', async (req, res) => {
+  try {
+const blogcommentFind = await Blog.findOne({ where:{ createdAt: req.body.commenttag }})
 
+    const userData = await Comment.create({
+      comment_content:req.body.comment,
+      user_id:req.session.user_id,
+      blog_id:blogcommentFind.id
+    });
+
+    console.log(userData)
+
+      res.status(200).json(req.body);
+   
+  } catch (err) {
+    res.status(400).json(err);
+  }
+  // Creates a new comment post
+});
 module.exports = router;
