@@ -1,0 +1,35 @@
+<h3>{{modblogpost.post_title}}</h3>
+        <p>
+            {{modblogpost.post_content}}
+        </p>
+        <p id="updatetag">
+            {{modblogpost.createdAt}}
+        </p>
+        <p>
+            {{modblogpost.user.email}}
+        </p>
+<h2>Update the blog</h2>
+<form class="form update-form">
+  <div class="form-group">
+    <label for="update-blog">Comments:</label>
+    <input class="form-input" type="text" id="update-blog" />
+  </div>
+  <div class="form-group">
+    <button class="btn btn-primary" type="submit">Update</button>
+  </div>
+
+<div class="form-group">
+    <button id="delbutton" class="btn btn-primary" type="submit">Delete</button>
+  </div>
+  <h2>Comments:</h2>
+<div>
+    {{#each commentblogposts as |commentblogpost|}}
+    <p> 
+        {{commentblogpost.comment_content}} 
+    </p>
+        <p>
+            {{commentblogpost.user.email}}
+        </p>
+    {{/each}}
+</div>
+<script src="/js/modblog.js"></script>

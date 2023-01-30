@@ -4,7 +4,7 @@ const { User,Blog, Comment } = require("../../models");
 router.post("/login", async (req, res) => {
   try {
     const userData = await User.findOne({ where: { email: req.body.email } });
-    console.log("HEY!!!!!!!!!!!!!")
+  
     if (!userData) {
       res
         .status(400)
@@ -100,4 +100,39 @@ const blogcommentFind = await Blog.findOne({ where:{ createdAt: req.body.comment
   }
   // Creates a new comment post
 });
+
+router.put('/update', async (req, res) => {
+  try {
+const blogcommentFind = await Blog.findOne({ where:{ createdAt: req.body.updatetag }})
+const keepoldblog = blogcommentFind.post_content;
+
+    const userData = await Blog.update({
+      post_content: keepoldblog + '; ' + req.body.update,
+    },
+    {
+      where:{createdAt: req.body.updatetag}
+    }
+    );
+
+    console.log(userData)
+
+      res.status(200).json(req.body);
+   
+  } catch (err) {
+    res.status(400).json(err);
+  }
+  // Update an old post
+});
+
+router.delete('/delete', async (req,res)=>{
+  try {
+  Blog.destroy({
+    where:{createdAt: req.body.deltag}
+  })
+  res.status(200).json({ message: "Message Deleted!" });
+} catch (err){
+  res.status(400);
+}});
+
+
 module.exports = router;

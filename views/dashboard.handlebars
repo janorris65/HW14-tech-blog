@@ -1,7 +1,7 @@
 <div>
     <h2>Hello {{username.email}}</h2>
     {{#each userblogs as |userblog|}}
-    <h3>{{userblog.post_title}}</h3>
+    <a href="/modblog/{{userblog.id}}" id="blogtitle">{{userblog.post_title}}</a>
         <p>
             {{userblog.post_content}}
         </p>

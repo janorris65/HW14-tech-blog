@@ -59,6 +59,24 @@ router.get("/dashboard", withAuth, async (req,res)=> {
     //contains my blog posts and options to add new (title and content),return to dashboard
 })
 
+router.get("/modblog/:id", withAuth, async (req,res)=> {
+    
+    const modblogpostData = await Blog.findByPk(req.params.id, {
+        include:[User]
+    });
+    const modblogpost = modblogpostData.get({ plain: true });
 
+    const commentblogpostData = await Comment.findAll({
+        where: {
+            blog_id:req.params.id
+        }
+    },{
+       include:[User]
+    })
+    const commentblogposts = commentblogpostData.map((blog) => blog.get({ plain: true }));
+
+    res.render("modblog",{ modblogpost, commentblogposts })
+    // render clicked blogpost, option update or delete
+})
 
 module.exports = router;
