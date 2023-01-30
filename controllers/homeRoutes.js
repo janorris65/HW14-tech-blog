@@ -33,7 +33,17 @@ router.get("/signup", async (req,res)=> {
 })
 
 router.get("/dashboard", withAuth, async (req,res)=> {
-    res.render("dashboard",{
+    const usernameData= await User.findByPk(req.session.user_id);
+    const username = usernameData.get({ plain: true });
+
+    const userblogData = await Blog.findAll({
+        where: {
+            user_id: req.session.user_id
+        }
+    });
+    const userblogs = userblogData.map((blog) => blog.get({ plain: true }));
+    console.log(userblogs, "hey!!!!");
+    res.render("dashboard",{ username, userblogs,
         loggedIn: req.session.logged_in
       });
     console.log("yo!!!!");

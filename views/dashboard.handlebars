@@ -1,5 +1,13 @@
 <div>
-    <p>
-        Hello! Dashboard
-    </p>
+    <h2>Hello {{username.email}}</h2>
+    {{#each userblogs as |userblog|}}
+    <h3>{{userblog.post_title}}</h3>
+        <p>
+            {{userblog.post_content}}
+        </p>
+        <p>
+            {{userblog.createdAt}}
+        </p>
+    {{/each}}
 </div>
+<nav>
