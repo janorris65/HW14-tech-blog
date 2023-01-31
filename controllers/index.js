@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-import apiRoutes from './api';
+import apiRoutes from './api/index.js';
 import homeRoutes from './homeRoutes.js';
 
 router.use('/', homeRoutes);
