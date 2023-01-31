@@ -5,7 +5,7 @@ import { create } from 'express-handlebars';
 import routes from './controllers/index.js';
 
 
-import sequelize, { sync } from '/config/connection.js';
+import sequelize, { sync } from './config/connection.js';
 const SequelizeStore = require('connect-session-sequelize')(Store);
 
 const app = express();
