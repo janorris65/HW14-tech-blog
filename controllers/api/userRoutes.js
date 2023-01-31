@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User,Blog, Comment } = require("../../models/index");
+import { User, Blog, Comment } from "../../models/index";
 
 router.post("/login", async (req, res) => {
   try {
@@ -135,4 +135,4 @@ router.delete('/delete', async (req,res)=>{
 }});
 
 
-module.exports = router;
+export default router;
