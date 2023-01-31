@@ -3,7 +3,7 @@ import express, { json, urlencoded } from 'express';
 import session, { Store } from 'express-session';
 import { create } from 'express-handlebars';
 import routes from './controllers/index.js';
-import helpers from './utils/helpers';
+// import helpers from './utils/helpers';
 
 import sequelize, { sync } from './config/connection';
 const SequelizeStore = require('connect-session-sequelize')(Store);
