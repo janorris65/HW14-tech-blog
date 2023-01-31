@@ -1,5 +1,5 @@
 const router = require("express").Router();
-import { User, Blog, Comment } from "../../models/index";
+import { User, Blog, Comment } from "../../models/index.js";
 
 router.post("/login", async (req, res) => {
   try {

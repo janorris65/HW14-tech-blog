@@ -1,6 +1,6 @@
 const router = require("express").Router();
-import { User, Blog, Comment } from "../models";
-import withAuth from "../utils/auth";
+import { User, Blog, Comment } from "../models/index.js";
+import withAuth from "../utils/auth.js";
 
 router.get("/", async (req,res) => {
     const blogData = await Blog.findAll();

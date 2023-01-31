@@ -1,6 +1,6 @@
 import { Model, DataTypes } from 'sequelize';
 import { compareSync, hash } from 'bcrypt';
-import sequelize from '../config/connection';
+import sequelize from '../config/connection.js';
 
 
 class User extends Model {

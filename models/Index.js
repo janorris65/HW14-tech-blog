@@ -1,6 +1,6 @@
-import User, { hasMany } from "./Users";
-import Blog, { belongsTo, hasMany as _hasMany } from "./Blog";
-import Comment from "./Comment";
+import User, { hasMany } from "./Users.js";
+import Blog, { belongsTo, hasMany as _hasMany } from "./Blog.js";
+import Comment from "./Comment.js";
 
 hasMany(Blog);
 belongsTo(User);
