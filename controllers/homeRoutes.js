@@ -1,6 +1,6 @@
 const router = require("express").Router();
-const { User, Blog, Comment } = require("../models");
-const withAuth = require("../utils/auth");
+import { User, Blog, Comment } from "../models/index.js";
+import withAuth from "../utils/auth.js";
 
 router.get("/", async (req,res) => {
     const blogData = await Blog.findAll();
@@ -79,4 +79,4 @@ router.get("/modblog/:id", withAuth, async (req,res)=> {
     // render clicked blogpost, option update or delete
 })
 
-module.exports = router;
+export default router;
