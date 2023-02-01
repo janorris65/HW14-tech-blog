@@ -1,0 +1,29 @@
+<div>
+    <h2>Hello {{username.email}}</h2>
+    {{#each userblogs as |userblog|}}
+    <a href="/modblog/{{userblog.id}}" id="blogtitle">{{userblog.post_title}}</a>
+        <p>
+            {{userblog.post_content}}
+        </p>
+        <p>
+            {{userblog.createdAt}}
+        </p>
+    {{/each}}
+</div>
+<div>
+    <h2>Add a new Blog post</h2>
+<form class="form blog-form">
+  <div class="form-group">
+    <label for="title-blog">Title:</label>
+    <input class="form-input" type="text" id="title-blog" />
+  </div>
+  <div class="form-group">
+    <label for="content-blog">Content:</label>
+    <input class="form-input" type="text" id="content-blog" />
+  </div>
+  <div class="form-group">
+    <button class="btn btn-primary" type="submit">Add Blog</button>
+  </div>
+
+<script src="/js/blogadd.js"></script>
+</div>

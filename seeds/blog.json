@@ -1,0 +1,22 @@
+[
+    {
+        "post_title":"The Wayback Machine",
+        "post_content":"Wasn't it just a van?",
+        "user_id":1
+    },
+    {
+        "post_title":"The Wayback Machine Today",
+        "post_content":"But it could be EV today",
+        "user_id":1
+    },
+    {
+        "post_title":"The Matrix",
+        "post_content":"Why only two options?",
+        "user_id":2
+    },
+    {
+        "post_title":"The Matrix relearns",
+        "post_content":"Why not a brown pill",
+        "user_id":2
+    }
+]
