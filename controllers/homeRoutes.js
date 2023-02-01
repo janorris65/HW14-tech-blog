@@ -1,5 +1,5 @@
 const router = require("express").Router();
-import { User, Blog, Comment } from "../models/index.js";
+import { User, Blog, Comment } from "../models/index2.js";
 import withAuth from "../utils/auth.js";
 
 router.get("/", async (req,res) => {
