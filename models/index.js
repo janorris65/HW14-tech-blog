@@ -1,5 +1,5 @@
 import User, { hasMany } from "./Users.js";
-import Blog, { belongsTo, hasMany as _hasMany } from "./Blog.js";
+import Blog, { belongsTo, hasMany as _hasMany } from "./blog2.js";
 import Comment from "./Comment.js";
 
 hasMany(Blog);
